@@ -10,4 +10,6 @@ export const MainLayout = styled.div`
 export const InnerLayout = styled.div`
     padding: 2.2rem 1.8rem;
     width: 100%;
+    overflow: hidden;
+
 `;

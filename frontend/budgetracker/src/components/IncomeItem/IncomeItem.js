@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { calender, comment, dollar, stocks, trash, money, yt, users, piggy, card, takeaway, clothing, dateFormat } from "../../utilities/icons";
+import { calender, comment, dollar, stocks, trash, money, yt, users, piggy, card, takeaway, clothing } from "../../utilities/icons";
 import Button from "../Button/Button";
+import { dateFormat } from "../../utilities/dateFormat";
 
 function IncomeItem({
     id,
@@ -54,7 +55,7 @@ function IncomeItem({
                 <div className="inner-content">
                     <div className="text">
                         <p>{dollar} {amount}</p>
-                        <p>{calender} {date}</p>
+                        <p>{calender} {dateFormat(date)}</p>
                         <p>
                             {comment}
                             {description}

@@ -6,8 +6,8 @@ import { useGlobalContext } from "../../context/global";
 import Button from "../Button/Button";
 import {plus} from "../../utilities/icons";
 
-function Forms() {
-    const {addIncome, getIncomes} = useGlobalContext();
+function ExpenseForm() {
+    const {addExpense, getExpenses} = useGlobalContext();
     const [inputState, setInputState] = useState({
         title: "",
         amount: "",
@@ -25,8 +25,8 @@ function Forms() {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-        addIncome(inputState);
-        getIncomes();
+        addExpense(inputState);
+        getExpenses();
         setInputState({
             title: "",
             amount: "",
@@ -36,12 +36,12 @@ function Forms() {
         })
     }
     return (
-        <FormSyled onSubmit={handleSubmit}>
+        <ExpenseFormSyled onSubmit={handleSubmit}>
             <div className="input-control">
-                <input type="text" value={title} name={'title'} placeholder="Income Title" onChange={handleInput('title')} />
+                <input type="text" value={title} name={'title'} placeholder="Expense Title" onChange={handleInput('title')} />
             </div>
             <div className="input-control">
-                <input type="text" value={amount} name={'amount'} placeholder="Income Amount" onChange={handleInput('amount')} />
+                <input type="text" value={amount} name={'amount'} placeholder="Expense Amount" onChange={handleInput('amount')} />
             </div>
             <div className="input-control">
                 <DatePicker id="date" placeholderText="Select Date" selected={date} dateFormat="dd/MM/yyyy" onChange={
@@ -51,12 +51,14 @@ function Forms() {
             <div className="selects input-control">
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled >Select Category</option>
-                    <option value="income">Income</option>
-                    <option value="salary">Salary</option>
-                    <option value="business">Business</option>
+                    <option value="bills">Bills</option>
+                    <option value="rent">Rent</option>
+                    <option value="mortgage">Mortgage</option>
                     <option value="bank">Bank</option>
-                    <option valie="investments">Investments</option>
-                    <option value="stocks">Stocks</option>
+                    <option valie="food">Food</option>
+                    <option value="car">Car</option>
+                    <option value="clothes">Clothes</option>
+                    <option value="medical">Medical Bills</option>
                     <option value="others">Others</option>
                 </select>
             </div>
@@ -64,14 +66,14 @@ function Forms() {
                 <textarea name="description" value={description} placeholder="Add Description" id="descrption" cols="25" rows="4" onChange={handleInput('description')}></textarea>
             </div>
             <div className="submit-btn">
-                <Button name={'Add Income'} icon={plus} bPad={'0.8rem 1.6 rem'} bRad={'30px'} bg={'var(--color--accent'} color={'black'}/>
+                <Button name={'Add Expense'} icon={plus} bPad={'0.8rem 1.6 rem'} bRad={'30px'} bg={'var(--color--accent'} color={'black'}/>
                 
             </div>
-        </FormSyled>
+        </ExpenseFormSyled>
     )
 }
 
-const FormSyled = styled.form`
+const ExpenseFormSyled = styled.form`
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -122,4 +124,4 @@ const FormSyled = styled.form`
 
 `;
 
-export default Forms;
+export default ExpenseForm;
