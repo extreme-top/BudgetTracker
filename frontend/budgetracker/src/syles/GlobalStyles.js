@@ -37,4 +37,25 @@ export const GlobalStyles = createGlobalStyle
         color : rga(255, 255, 255, 0.75);
     }
 
+    .error{
+        color: red;
+        aanimation: shake 0.5s ease-in-out;
+        @keyframes shake{
+            0%{
+                transform: rotate(0deg);
+            }
+            25%{
+                transform: rotate(5deg);
+            }
+            50%{
+                transform: rotate(-5deg);
+            }
+            75%{
+                transform: rotate(5deg);
+            }
+            100%{
+                transform: rotate(0deg);
+            }
+    }
+
 `;

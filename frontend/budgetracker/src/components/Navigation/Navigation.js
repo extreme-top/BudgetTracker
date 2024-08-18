@@ -42,7 +42,7 @@ const NavStyled = styled.nav`
     display: flex;
     width: 380px;
     height: 800px;
-    background: aquamarine;
+    background: white;
     backdrop-filter: blur(5px);
     border : 4px solid #007bff;
     border-radius: 25px;

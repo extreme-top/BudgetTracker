@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 import {plus} from "../../utilities/icons";
 
 function Forms() {
-    const {addIncome, getIncomes} = useGlobalContext();
+    const {addIncome, getIncomes, error, setError} = useGlobalContext();
     const [inputState, setInputState] = useState({
         title: "",
         amount: "",
@@ -22,6 +22,7 @@ function Forms() {
             ...inputState,
             [name]: e.target.value
         })
+        setError('')
     }
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -37,6 +38,7 @@ function Forms() {
     }
     return (
         <FormSyled onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
             <div className="input-control">
                 <input type="text" value={title} name={'title'} placeholder="Income Title" onChange={handleInput('title')} />
             </div>

@@ -63,6 +63,7 @@ export const GlobalProvider = ({children}) => {
         getExpenses()
     }
 
+    //Calculates the total ammount of expenses
     const totalExpenses = () => {
         let totalIncome = 0;
         expenses.forEach((income) =>{
@@ -72,18 +73,20 @@ export const GlobalProvider = ({children}) => {
         return totalIncome;
     }
 
-
+    
+    //Calculates the difference between total income and total expenses
     const totalBalance = () => {
         return totalIncome() - totalExpenses()
     }
 
+    //Returns the last 5 transactions
     const transactionHistory = () => {
         const history = [...incomes, ...expenses]
         history.sort((a, b) => {
             return new Date(b.createdAt) - new Date(a.createdAt)
         })
 
-        return history.slice(0, 3)
+        return history.slice(0, 5)
     }
 
 
